@@ -63,7 +63,7 @@ const ProfilePage = () => {
 
         {success && (
           <div className="mb-6 p-4 rounded-xl border border-emerald-205/60 bg-emerald-50 text-emerald-800 text-xs flex gap-2 items-center shadow-sm">
-            <CheckCircle2 size={16} className="text-[#3f6239] shrink-0" />
+            <CheckCircle2 size={16} className="text-ptpn-700 shrink-0" />
             <span className="font-medium">{success}</span>
           </div>
         )}
@@ -83,7 +83,7 @@ const ProfilePage = () => {
               ) : user?.avatar ? (
                 <img src={`http://127.0.0.1:8000/storage/${user.avatar}`} alt={user.name} className="w-full h-full object-cover" />
               ) : (
-                <div className="w-full h-full flex items-center justify-center text-3xl font-extrabold text-[#3f6239] bg-[#eef3ee]">
+                <div className="w-full h-full flex items-center justify-center text-3xl font-extrabold text-ptpn-700 bg-[#eef3ee]">
                   {user?.name.charAt(0).toUpperCase()}
                 </div>
               )}
@@ -100,7 +100,7 @@ const ProfilePage = () => {
                 type="button"
                 className="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-emerald-800/10 bg-[#f4f7f4]/80 text-slate-700 text-[10px] font-bold uppercase tracking-wider hover:text-slate-900 hover:bg-[#eef3ee] transition cursor-pointer"
               >
-                <Upload size={12} className="text-[#3f6239]" /> Ganti Foto Profil
+                <Upload size={12} className="text-ptpn-700" /> Ganti Foto Profil
               </button>
             </div>
           </div>
@@ -148,7 +148,7 @@ const ProfilePage = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl shadow-md shadow-emerald-800/10 hover:shadow-lg text-xs font-bold text-white bg-[#3f6239] hover:bg-[#304d2c] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-800 disabled:opacity-50 transition-all uppercase tracking-wider cursor-pointer"
+              className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl shadow-md shadow-emerald-800/10 hover:shadow-lg text-xs font-bold text-white bg-ptpn-700 hover:bg-ptpn-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-800 disabled:opacity-50 transition-all uppercase tracking-wider cursor-pointer"
             >
               {isLoading ? (
                 <span className="flex items-center gap-2">

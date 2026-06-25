@@ -28,7 +28,7 @@ const PaymentQueuePage = () => {
     <div className="py-6 space-y-6 px-4 md:px-6">
       <div>
         <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-          <ShieldCheck className="text-[#3f6239]" /> Antrian Verifikasi Pembayaran
+          <ShieldCheck className="text-ptpn-700" /> Antrian Verifikasi Pembayaran
         </h1>
         <p className="text-sm text-slate-500">Daftar reservasi masuk yang telah mengunggah bukti transfer.</p>
       </div>
@@ -36,8 +36,8 @@ const PaymentQueuePage = () => {
       {loading ? (
         <div className="flex flex-col items-center justify-center min-h-[40vh] space-y-4">
           <div className="relative flex items-center justify-center">
-            <div className="w-16 h-16 border-4 border-emerald-800/20 border-t-[#3f6239] rounded-full animate-spin"></div>
-            <Loader2 size={24} className="animate-spin text-[#3f6239] absolute" />
+            <div className="w-16 h-16 border-4 border-emerald-800/20 border-t-ptpn-700 rounded-full animate-spin"></div>
+            <Loader2 size={24} className="animate-spin text-ptpn-700 absolute" />
           </div>
           <p className="text-slate-600 text-sm font-medium animate-pulse">Memuat antrian verifikasi...</p>
         </div>
@@ -74,13 +74,13 @@ const PaymentQueuePage = () => {
                     <td className="py-4 text-slate-500">
                       {b.payment?.uploaded_at ? new Date(b.payment.uploaded_at).toLocaleString('id-ID') : '-'}
                     </td>
-                    <td className="py-4 font-extrabold text-[#3f6239] text-sm">
+                    <td className="py-4 font-extrabold text-ptpn-700 text-sm">
                       Rp {new Intl.NumberFormat('id-ID').format(b.total_price)}
                     </td>
                     <td className="py-4 text-right">
                       <button
                         onClick={() => navigate(`/finance/payments/${b.payment?.id}`)}
-                        className="inline-flex items-center gap-1.5 bg-[#3f6239] hover:bg-[#304d2c] text-white font-bold px-3.5 py-2 rounded-xl text-[10px] transition-all uppercase tracking-wider cursor-pointer shadow-sm hover:shadow"
+                        className="inline-flex items-center gap-1.5 bg-ptpn-700 hover:bg-ptpn-800 text-white font-bold px-3.5 py-2 rounded-xl text-[10px] transition-all uppercase tracking-wider cursor-pointer shadow-sm hover:shadow"
                       >
                         <Eye size={12} /> Tinjau Bukti
                       </button>

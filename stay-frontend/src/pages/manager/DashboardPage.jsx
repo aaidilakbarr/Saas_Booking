@@ -44,8 +44,8 @@ const DashboardPage = () => {
     return (
       <div className="flex flex-col items-center justify-center min-h-[50vh] space-y-4">
         <div className="relative flex items-center justify-center">
-          <div className="w-16 h-16 border-4 border-emerald-800/20 border-t-[#3f6239] rounded-full animate-spin"></div>
-          <Loader2 size={24} className="animate-spin text-[#3f6239] absolute" />
+          <div className="w-16 h-16 border-4 border-emerald-800/20 border-t-ptpn-700 rounded-full animate-spin"></div>
+          <Loader2 size={24} className="animate-spin text-ptpn-700 absolute" />
         </div>
         <p className="text-slate-600 text-sm font-medium animate-pulse">Memuat dashboard statistik...</p>
       </div>
@@ -61,7 +61,7 @@ const DashboardPage = () => {
     <div className="py-6 space-y-6 px-4 md:px-6">
       <div>
         <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-          <LayoutDashboard className="text-[#3f6239]" /> Dashboard Pengelola Properti
+          <LayoutDashboard className="text-ptpn-700" /> Dashboard Pengelola Properti
         </h1>
         <p className="text-sm text-slate-500">Ringkasan operasional dan keuangan penginapan PTPN IV.</p>
       </div>
@@ -91,12 +91,12 @@ const DashboardPage = () => {
         <div className="glass-panel p-5 rounded-2xl border border-emerald-800/10 bg-white/95 shadow-sm flex items-center justify-between">
           <div className="space-y-1">
             <span className="text-xs text-slate-550 font-semibold block">Total Pendapatan</span>
-            <span className="text-lg font-extrabold text-[#3f6239]">
+            <span className="text-lg font-extrabold text-ptpn-700">
               Rp {new Intl.NumberFormat('id-ID').format(stats.revenue_all_time || 0)}
             </span>
             <span className="text-[10px] text-slate-500 font-medium block">Transaksi Dikonfirmasi</span>
           </div>
-          <div className="p-3 bg-emerald-50 text-[#3f6239] border border-emerald-200 rounded-xl"><BadgeCent size={20} /></div>
+          <div className="p-3 bg-emerald-50 text-ptpn-700 border border-emerald-200 rounded-xl"><BadgeCent size={20} /></div>
         </div>
 
         {/* Metric 4: Today's Occupancy */}
@@ -116,7 +116,7 @@ const DashboardPage = () => {
         {/* Left: Monthly Revenue Chart */}
         <div className="lg:col-span-2 glass-panel p-6 rounded-2xl border border-emerald-800/10 bg-white/95 shadow-sm space-y-6">
           <h2 className="text-base font-bold text-slate-850 flex items-center gap-1.5">
-            <TrendingUp size={18} className="text-[#3f6239]" /> Tren Pendapatan Bulanan
+            <TrendingUp size={18} className="text-ptpn-700" /> Tren Pendapatan Bulanan
           </h2>
           
           {revenueMonthly.length === 0 ? (
@@ -138,7 +138,7 @@ const DashboardPage = () => {
                       </div>
                       <div
                         style={{ height: `${pct}%` }}
-                        className="w-8 rounded-t bg-gradient-to-t from-[#3f6239] to-emerald-700 group-hover:from-emerald-700 group-hover:to-teal-500 transition-all duration-500 shadow-sm"
+                        className="w-8 rounded-t bg-gradient-to-t from-ptpn-700 to-emerald-700 group-hover:from-emerald-700 group-hover:to-teal-500 transition-all duration-500 shadow-sm"
                       ></div>
                       <span className="text-[10px] text-slate-500 font-medium">{monthNames[m.month - 1]} '{String(m.year).substring(2)}</span>
                     </div>
@@ -168,7 +168,7 @@ const DashboardPage = () => {
                       {pop.room_type?.property?.name}
                     </span>
                   </div>
-                  <span className="text-xs font-bold bg-[#3f6239]/10 text-[#3f6239] border border-[#3f6239]/20 px-2 py-0.5 rounded-lg shrink-0">
+                  <span className="text-xs font-bold bg-ptpn-700/10 text-ptpn-700 border border-ptpn-700/20 px-2 py-0.5 rounded-lg shrink-0">
                     {pop.count}x dipesan
                   </span>
                 </div>
@@ -184,7 +184,7 @@ const DashboardPage = () => {
           <h2 className="text-base font-bold text-slate-850">Reservasi Terbaru</h2>
           <button
             onClick={() => navigate('/manager/bookings')}
-            className="text-xs font-bold text-[#3f6239] hover:text-[#304d2c] flex items-center gap-1 cursor-pointer transition"
+            className="text-xs font-bold text-ptpn-700 hover:text-ptpn-800 flex items-center gap-1 cursor-pointer transition"
           >
             Lihat semua <ArrowRight size={14} />
           </button>
@@ -217,7 +217,7 @@ const DashboardPage = () => {
                     <td className="py-3.5 text-slate-500">
                       {b.check_in} s/d {b.check_out}
                     </td>
-                    <td className="py-3.5 font-extrabold text-[#3f6239] text-sm">
+                    <td className="py-3.5 font-extrabold text-ptpn-700 text-sm">
                       Rp {new Intl.NumberFormat('id-ID').format(b.total_price)}
                     </td>
                     <td className="py-3.5">{getStatusBadge(b.status)}</td>

@@ -59,7 +59,7 @@ const LoginPage = () => {
   return (
     <div className="relative flex-1 flex flex-col justify-center py-12 max-w-md mx-auto w-full overflow-hidden px-4 md:px-6">
       {/* Background glow source */}
-      <div className="glow-sphere w-64 h-64 bg-emerald-800/5 top-1/4 left-1/4"></div>
+      <div className="glow-sphere w-64 h-64 bg-teal-100/10 top-1/4 left-1/4"></div>
 
       <motion.div 
         initial={{ opacity: 0, y: 15 }}
@@ -67,12 +67,12 @@ const LoginPage = () => {
         transition={{ duration: 0.5 }}
         className="text-center space-y-2 relative z-10"
       >
-        <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 font-sans">
+        <h2 className="text-2xl font-extrabold tracking-tight text-slate-900 font-sans">
           Selamat Datang Kembali
         </h2>
-        <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">
+        <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider">
           Atau{' '}
-          <Link to="/register" className="font-bold text-[#3f6239] hover:text-[#304d2c] transition">
+          <Link to="/register" className="font-bold text-teal-600 hover:text-teal-700 transition">
             Buat akun customer baru
           </Link>
         </p>
@@ -84,29 +84,29 @@ const LoginPage = () => {
         transition={{ duration: 0.5, delay: 0.15 }}
         className="mt-8 relative z-10"
       >
-        <div className="glass-panel py-8 px-6 sm:px-10 rounded-2xl relative overflow-hidden border border-emerald-800/10 bg-white/95 shadow-md">
-          <div className="absolute top-0 right-0 w-36 h-36 bg-emerald-800/5 rounded-full blur-2xl -mr-10 -mt-10"></div>
+        <div className="glass-panel py-8 px-6 sm:px-10 rounded-2xl relative overflow-hidden border border-slate-100 bg-white shadow-[0_4px_24px_rgba(15,23,42,0.02)]">
+          <div className="absolute top-0 right-0 w-36 h-36 bg-teal-100/5 rounded-full blur-2xl -mr-10 -mt-10"></div>
 
           {sessionExpired && (
-            <div className="mb-4 p-3 rounded-lg bg-yellow-50 border border-yellow-200 text-yellow-800 text-xs font-medium">
+            <div className="mb-4 p-3 rounded-lg bg-amber-50 border border-amber-200/50 text-amber-800 text-xs font-semibold">
               Sesi Anda telah berakhir. Silakan masuk kembali.
             </div>
           )}
 
           {error && (
-            <div className="mb-4 p-3 rounded-lg bg-red-50 border border-red-200 text-red-650 text-xs font-medium">
+            <div className="mb-4 p-3 rounded-lg bg-red-50 border border-red-150 text-red-500 text-xs font-semibold">
               {error}
             </div>
           )}
 
           <form className="space-y-5 relative z-10 text-xs" onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="email" className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">
+              <label htmlFor="email" className="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2">
                 Alamat Email
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                  <Mail size={16} />
+                  <Mail size={14} />
                 </div>
                 <input
                   id="email"
@@ -115,19 +115,19 @@ const LoginPage = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="block w-full pl-10 pr-3 py-3 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-emerald-800 focus:ring-1 focus:ring-emerald-800 focus:outline-none transition-all shadow-sm placeholder-slate-400"
+                  className="block w-full pl-10 pr-3 py-3 bg-white border border-slate-200 rounded-xl text-slate-800 text-xs focus:border-teal-500 focus:ring-1 focus:ring-teal-500 focus:outline-none transition-all shadow-sm placeholder-slate-400 font-semibold"
                   placeholder="name@stay.com"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">
+              <label htmlFor="password" className="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-2">
                 Kata Sandi
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                  <Lock size={16} />
+                  <Lock size={14} />
                 </div>
                 <input
                   id="password"
@@ -136,7 +136,7 @@ const LoginPage = () => {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="block w-full pl-10 pr-10 py-3 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-emerald-800 focus:ring-1 focus:ring-emerald-800 focus:outline-none transition-all shadow-sm placeholder-slate-400"
+                  className="block w-full pl-10 pr-10 py-3 bg-white border border-slate-200 rounded-xl text-slate-800 text-xs focus:border-teal-500 focus:ring-1 focus:ring-teal-500 focus:outline-none transition-all shadow-sm placeholder-slate-400 font-semibold"
                   placeholder="••••••••"
                 />
                 <button
@@ -144,13 +144,13 @@ const LoginPage = () => {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 transition cursor-pointer"
                 >
-                  {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                  {showPassword ? <EyeOff size={14} /> : <Eye size={14} />}
                 </button>
               </div>
             </div>
 
             <div className="flex items-center justify-end text-xs">
-              <Link to="/forgot-password" className="font-bold text-[#3f6239] hover:text-[#304d2c] transition">
+              <Link to="/forgot-password" className="font-bold text-teal-600 hover:text-teal-700 transition">
                 Lupa kata sandi?
               </Link>
             </div>
@@ -159,11 +159,11 @@ const LoginPage = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl shadow-md shadow-emerald-800/10 hover:shadow-lg text-xs font-bold text-white bg-[#3f6239] hover:bg-[#304d2c] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-800 disabled:opacity-50 transition-all uppercase tracking-wider cursor-pointer"
+                className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl shadow-sm text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 disabled:opacity-50 transition-all uppercase tracking-wider cursor-pointer"
               >
                 {isLoading ? (
                   <span className="flex items-center gap-2">
-                    <Loader2 size={14} className="animate-spin" /> Memproses...
+                    <Loader2 size={13} className="animate-spin" /> Memproses...
                   </span>
                 ) : (
                   'Masuk'

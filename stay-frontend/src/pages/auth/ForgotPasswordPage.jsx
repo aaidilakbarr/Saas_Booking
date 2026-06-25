@@ -54,8 +54,8 @@ const ForgotPasswordPage = () => {
 
           {success ? (
             <div className="text-center py-4 space-y-4 relative z-10 text-xs">
-              <div className="flex justify-center text-[#3f6239]">
-                <CheckCircle2 size={40} className="text-[#3f6239]" />
+              <div className="flex justify-center text-ptpn-700">
+                <CheckCircle2 size={40} className="text-ptpn-700" />
               </div>
               <h3 className="text-base font-bold text-slate-800 uppercase tracking-wider">Email Terkirim!</h3>
               <p className="text-xs text-slate-600 leading-relaxed font-medium">
@@ -64,7 +64,7 @@ const ForgotPasswordPage = () => {
               <div className="pt-4">
                 <Link
                   to="/login"
-                  className="inline-flex items-center gap-1.5 text-xs text-[#3f6239] hover:text-[#304d2c] font-bold transition uppercase tracking-wider"
+                  className="inline-flex items-center gap-1.5 text-xs text-ptpn-700 hover:text-ptpn-800 font-bold transition uppercase tracking-wider"
                 >
                   <ArrowLeft size={14} /> Kembali ke Halaman Masuk
                 </Link>
@@ -102,7 +102,7 @@ const ForgotPasswordPage = () => {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl shadow-md shadow-emerald-800/10 hover:shadow-lg text-xs font-bold text-white bg-[#3f6239] hover:bg-[#304d2c] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-800 disabled:opacity-50 transition-all uppercase tracking-wider cursor-pointer"
+                  className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl shadow-md shadow-emerald-800/10 hover:shadow-lg text-xs font-bold text-white bg-ptpn-700 hover:bg-ptpn-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-800 disabled:opacity-50 transition-all uppercase tracking-wider cursor-pointer"
                 >
                   {isLoading ? (
                     <span className="flex items-center gap-2">
@@ -117,7 +117,7 @@ const ForgotPasswordPage = () => {
               <div className="text-center pt-2">
                 <Link
                   to="/login"
-                  className="inline-flex items-center gap-1.5 text-xs text-slate-600 hover:text-[#3f6239] font-bold transition cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs text-slate-600 hover:text-ptpn-700 font-bold transition cursor-pointer"
                 >
                   <ArrowLeft size={14} /> Kembali ke Halaman Masuk
                 </Link>

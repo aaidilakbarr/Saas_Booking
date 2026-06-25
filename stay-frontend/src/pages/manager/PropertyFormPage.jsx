@@ -132,8 +132,8 @@ const PropertyFormPage = () => {
     return (
       <div className="flex flex-col items-center justify-center min-h-[50vh] space-y-4 font-sans">
         <div className="relative flex items-center justify-center">
-          <div className="w-16 h-16 border-4 border-emerald-800/20 border-t-[#3f6239] rounded-full animate-spin"></div>
-          <Loader2 size={24} className="animate-spin text-[#3f6239] absolute" />
+          <div className="w-16 h-16 border-4 border-emerald-800/20 border-t-ptpn-700 rounded-full animate-spin"></div>
+          <Loader2 size={24} className="animate-spin text-ptpn-700 absolute" />
         </div>
         <p className="text-slate-655 text-sm font-bold animate-pulse">Memuat formulir...</p>
       </div>
@@ -153,7 +153,7 @@ const PropertyFormPage = () => {
 
       <div className="glass-panel p-6 sm:p-8 rounded-2xl border border-emerald-800/10 bg-white/95 shadow-md space-y-6">
         <div className="flex items-center gap-2 border-b border-emerald-800/10 pb-4">
-          <Hotel className="text-[#3f6239]" size={24} />
+          <Hotel className="text-ptpn-700" size={24} />
           <h1 className="text-xl font-bold text-slate-800">
             {isEdit ? 'Ubah Informasi Properti' : 'Tambah Properti Baru'}
           </h1>
@@ -176,7 +176,7 @@ const PropertyFormPage = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="e.g. Hotel Agro Wisata Bah Butong"
-                className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm"
+                className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm"
               />
             </div>
             <div>
@@ -184,7 +184,7 @@ const PropertyFormPage = () => {
               <select
                 value={type}
                 onChange={(e) => setType(e.target.value)}
-                className="w-full px-3 py-2.5 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm cursor-pointer"
+                className="w-full px-3 py-2.5 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm cursor-pointer"
               >
                 <option value="hotel">Hotel</option>
                 <option value="villa">Villa</option>
@@ -202,7 +202,7 @@ const PropertyFormPage = () => {
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 placeholder="e.g. Jl. Perkebunan Teh Sidamanik"
-                className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm"
+                className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm"
               />
             </div>
             <div>
@@ -210,7 +210,7 @@ const PropertyFormPage = () => {
               <select
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}
-                className="w-full px-3 py-2.5 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm cursor-pointer"
+                className="w-full px-3 py-2.5 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm cursor-pointer"
               >
                 <option value="active">Aktif (Publik)</option>
                 <option value="inactive">Non-Aktif (Draft)</option>
@@ -227,7 +227,7 @@ const PropertyFormPage = () => {
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 placeholder="e.g. Simalungun"
-                className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm"
+                className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm"
               />
             </div>
             <div>
@@ -238,7 +238,7 @@ const PropertyFormPage = () => {
                 value={province}
                 onChange={(e) => setProvince(e.target.value)}
                 placeholder="e.g. Sumatera Utara"
-                className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm"
+                className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm"
               />
             </div>
           </div>
@@ -252,7 +252,7 @@ const PropertyFormPage = () => {
                 value={latitude}
                 onChange={(e) => setLatitude(e.target.value)}
                 placeholder="e.g. 2.8719"
-                className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm"
+                className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm"
               />
             </div>
             <div>
@@ -263,7 +263,7 @@ const PropertyFormPage = () => {
                 value={longitude}
                 onChange={(e) => setLongitude(e.target.value)}
                 placeholder="e.g. 99.0712"
-                className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm"
+                className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm"
               />
             </div>
           </div>
@@ -275,7 +275,7 @@ const PropertyFormPage = () => {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Jelaskan daya tarik, suasana agro, dan fasilitas penginapan Anda..."
-              className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm"
+              className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm"
             ></textarea>
           </div>
 
@@ -289,7 +289,7 @@ const PropertyFormPage = () => {
                     type="checkbox"
                     checked={selectedAmenities.includes(item.value)}
                     onChange={() => handleAmenityChange(item.value)}
-                    className="rounded border-emerald-800/15 text-[#3f6239] focus:ring-0 focus:ring-offset-0 w-4 h-4 cursor-pointer"
+                    className="rounded border-emerald-800/15 text-ptpn-700 focus:ring-0 focus:ring-offset-0 w-4 h-4 cursor-pointer"
                   />
                   <span>{item.label}</span>
                 </label>
@@ -330,7 +330,7 @@ const PropertyFormPage = () => {
             <button
               type="submit"
               disabled={saving}
-              className="w-full flex items-center justify-center gap-1.5 bg-[#3f6239] hover:bg-[#304d2c] text-white font-bold py-3 rounded-xl transition shadow-md hover:shadow-lg disabled:opacity-50 cursor-pointer font-sans"
+              className="w-full flex items-center justify-center gap-1.5 bg-ptpn-700 hover:bg-ptpn-800 text-white font-bold py-3 rounded-xl transition shadow-md hover:shadow-lg disabled:opacity-50 cursor-pointer font-sans"
             >
               {saving ? (
                 <>

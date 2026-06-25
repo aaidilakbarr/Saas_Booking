@@ -96,7 +96,7 @@ const ReportPage = () => {
       {/* Page Title (Hidden during Print) */}
       <div className="print:hidden">
         <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-          <BarChart className="text-[#3f6239]" /> Laporan Transaksi Keuangan
+          <BarChart className="text-ptpn-700" /> Laporan Transaksi Keuangan
         </h1>
         <p className="text-sm text-slate-500">Analisis dan unduh riwayat pemesanan akomodasi.</p>
       </div>
@@ -120,19 +120,29 @@ const ReportPage = () => {
           <div>
             <label className="block text-slate-650 font-bold mb-1">Mulai Tanggal</label>
             <input
-              type="date"
+              type={startDate ? "date" : "text"}
+              placeholder="Masukkan Tanggal"
+              onFocus={(e) => (e.target.type = "date")}
+              onBlur={(e) => {
+                if (!e.target.value) e.target.type = "text";
+              }}
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
-              className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm"
+              className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm"
             />
           </div>
           <div>
             <label className="block text-slate-650 font-bold mb-1">Sampai Tanggal</label>
             <input
-              type="date"
+              type={endDate ? "date" : "text"}
+              placeholder="Masukkan Tanggal"
+              onFocus={(e) => (e.target.type = "date")}
+              onBlur={(e) => {
+                if (!e.target.value) e.target.type = "text";
+              }}
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
-              className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm"
+              className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm"
             />
           </div>
           <div>
@@ -140,7 +150,7 @@ const ReportPage = () => {
             <select
               value={propertyId}
               onChange={(e) => setPropertyId(e.target.value)}
-              className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm cursor-pointer"
+              className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm cursor-pointer"
             >
               <option value="">Semua Properti</option>
               {properties.map((p) => (
@@ -153,7 +163,7 @@ const ReportPage = () => {
             <select
               value={status}
               onChange={(e) => setStatus(e.target.value)}
-              className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm cursor-pointer"
+              className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm cursor-pointer"
             >
               <option value="">Semua Status</option>
               <option value="confirmed">Confirmed</option>
@@ -170,11 +180,11 @@ const ReportPage = () => {
             onClick={handleExportCSV}
             className="flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-4 py-2.5 rounded-xl text-xs border border-slate-250 transition cursor-pointer"
           >
-            <FileSpreadsheet size={14} className="text-[#3f6239]" /> Ekspor Excel (CSV)
+            <FileSpreadsheet size={14} className="text-ptpn-700" /> Ekspor Excel (CSV)
           </button>
           <button
             onClick={handlePrint}
-            className="flex items-center gap-1.5 bg-[#3f6239] hover:bg-[#304d2c] text-white font-bold px-4 py-2.5 rounded-xl text-xs transition cursor-pointer shadow-md hover:shadow-lg"
+            className="flex items-center gap-1.5 bg-ptpn-700 hover:bg-ptpn-800 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition cursor-pointer shadow-md hover:shadow-lg"
           >
             <Printer size={14} /> Cetak Laporan (PDF)
           </button>
@@ -185,8 +195,8 @@ const ReportPage = () => {
       {loading ? (
         <div className="flex flex-col items-center justify-center min-h-[40vh] space-y-4">
           <div className="relative flex items-center justify-center">
-            <div className="w-16 h-16 border-4 border-emerald-800/20 border-t-[#3f6239] rounded-full animate-spin"></div>
-            <Loader2 size={24} className="animate-spin text-[#3f6239] absolute" />
+            <div className="w-16 h-16 border-4 border-emerald-800/20 border-t-ptpn-700 rounded-full animate-spin"></div>
+            <Loader2 size={24} className="animate-spin text-ptpn-700 absolute" />
           </div>
           <p className="text-slate-600 text-sm font-medium animate-pulse">Menghitung laporan transaksi...</p>
         </div>
@@ -222,7 +232,7 @@ const ReportPage = () => {
                     <td className="py-3.5">
                       {b.check_in} s/d {b.check_out} ({b.nights} malam)
                     </td>
-                    <td className="py-3.5 font-extrabold text-[#3f6239] print:text-slate-900 text-right text-sm">
+                    <td className="py-3.5 font-extrabold text-ptpn-700 print:text-slate-900 text-right text-sm">
                       Rp {new Intl.NumberFormat('id-ID').format(b.total_price)}
                     </td>
                     <td className="py-3.5 text-center">

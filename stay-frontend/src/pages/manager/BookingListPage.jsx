@@ -91,7 +91,7 @@ const BookingListPage = () => {
     <div className="py-6 space-y-6 px-4 md:px-6">
       <div>
         <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-          <CalendarDays className="text-[#3f6239]" /> Daftar Reservasi Tamu
+          <CalendarDays className="text-ptpn-700" /> Daftar Reservasi Tamu
         </h1>
         <p className="text-sm text-slate-500">Kelola kehadiran tamu (Check-In / Check-Out) pada penginapan Anda.</p>
       </div>
@@ -105,14 +105,14 @@ const BookingListPage = () => {
             placeholder="Cari kode booking, nama tamu, properti..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-3 py-2.5 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm"
+            className="w-full pl-9 pr-3 py-2.5 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm"
           />
         </div>
         <div className="sm:w-48">
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="w-full px-3 py-2.5 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm cursor-pointer"
+            className="w-full px-3 py-2.5 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm cursor-pointer"
           >
             <option value="">Semua Status</option>
             <option value="pending_payment">Belum Bayar</option>
@@ -130,8 +130,8 @@ const BookingListPage = () => {
       {loading ? (
         <div className="flex flex-col items-center justify-center min-h-[40vh] space-y-4 font-sans">
           <div className="relative flex items-center justify-center">
-            <div className="w-16 h-16 border-4 border-emerald-800/20 border-t-[#3f6239] rounded-full animate-spin"></div>
-            <Loader2 size={24} className="animate-spin text-[#3f6239] absolute" />
+            <div className="w-16 h-16 border-4 border-emerald-800/20 border-t-ptpn-700 rounded-full animate-spin"></div>
+            <Loader2 size={24} className="animate-spin text-ptpn-700 absolute" />
           </div>
           <p className="text-slate-655 text-sm font-bold animate-pulse">Memuat daftar reservasi...</p>
         </div>
@@ -171,7 +171,7 @@ const BookingListPage = () => {
                       <span className="block font-semibold">{b.check_in}</span>
                       <span className="text-slate-500 text-[10px] block">s/d {b.check_out} ({b.nights} malam)</span>
                     </td>
-                    <td className="py-3.5 font-extrabold text-[#3f6239] text-sm">
+                    <td className="py-3.5 font-extrabold text-ptpn-700 text-sm">
                       Rp {new Intl.NumberFormat('id-ID').format(b.total_price)}
                     </td>
                     <td className="py-3.5">{getStatusBadge(b.status)}</td>
@@ -180,7 +180,7 @@ const BookingListPage = () => {
                         <button
                           onClick={() => handleCheckIn(b.booking_code)}
                           disabled={updatingCode === b.booking_code}
-                          className="inline-flex items-center gap-1.5 bg-[#3f6239] hover:bg-[#304d2c] text-white font-bold px-3.5 py-2 rounded-xl text-[10px] uppercase tracking-wider cursor-pointer shadow-sm hover:shadow transition disabled:opacity-50 animate-float-subtle"
+                          className="inline-flex items-center gap-1.5 bg-ptpn-700 hover:bg-ptpn-800 text-white font-bold px-3.5 py-2 rounded-xl text-[10px] uppercase tracking-wider cursor-pointer shadow-sm hover:shadow transition disabled:opacity-50 animate-float-subtle"
                         >
                           <Check size={12} /> Check-In
                         </button>

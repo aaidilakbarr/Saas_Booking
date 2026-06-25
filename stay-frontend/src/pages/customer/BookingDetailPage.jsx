@@ -139,8 +139,8 @@ const BookingDetailPage = () => {
     return (
       <div className="flex flex-col items-center justify-center min-h-[50vh] space-y-4 font-sans">
         <div className="relative flex items-center justify-center">
-          <div className="w-16 h-16 border-4 border-emerald-800/20 border-t-[#3f6239] rounded-full animate-spin"></div>
-          <Loader2 size={24} className="animate-spin text-[#3f6239] absolute" />
+          <div className="w-16 h-16 border-4 border-emerald-800/20 border-t-ptpn-700 rounded-full animate-spin"></div>
+          <Loader2 size={24} className="animate-spin text-ptpn-700 absolute" />
         </div>
         <p className="text-slate-655 text-sm font-bold animate-pulse">Memuat detail reservasi...</p>
       </div>
@@ -194,7 +194,7 @@ const BookingDetailPage = () => {
                 {booking.room_type?.property?.name}
               </h2>
               <p className="text-xs text-slate-500 font-medium flex items-center gap-1">
-                <MapPin size={12} className="text-[#3f6239]" /> {booking.room_type?.property?.address}
+                <MapPin size={12} className="text-ptpn-700" /> {booking.room_type?.property?.address}
               </p>
             </div>
 
@@ -229,7 +229,7 @@ const BookingDetailPage = () => {
           {booking.status === 'checked_out' && (
             <div className="glass-panel p-6 rounded-2xl border border-emerald-800/10 bg-white/95 shadow-md space-y-4">
               <h3 className="text-lg font-bold text-slate-800 flex items-center gap-2">
-                <MessageSquareText size={20} className="text-[#3f6239]" /> Berikan Ulasan Penginapan
+                <MessageSquareText size={20} className="text-ptpn-700" /> Berikan Ulasan Penginapan
               </h3>
               <p className="text-xs text-slate-500 font-medium">
                 Ulasan Anda sangat berarti bagi kami untuk meningkatkan kualitas pelayanan akomodasi PTPN IV.
@@ -240,7 +240,7 @@ const BookingDetailPage = () => {
                 <div className="p-4 bg-slate-50 rounded-xl border border-emerald-800/10 space-y-2 shadow-sm">
                   <div className="flex justify-between items-center">
                     <span className="font-bold text-slate-800">{booking.review.title || 'Ulasan Anda'}</span>
-                    <span className="flex items-center gap-0.5 text-yellow-700 text-xs font-bold bg-[#3f6239]/10 border border-[#3f6239]/20 px-2.5 py-1 rounded-full">
+                    <span className="flex items-center gap-0.5 text-yellow-700 text-xs font-bold bg-ptpn-700/10 border border-ptpn-700/20 px-2.5 py-1 rounded-full">
                       <Star size={12} fill="currentColor" className="text-yellow-500" /> {booking.review.rating}.0
                     </span>
                   </div>
@@ -284,7 +284,7 @@ const BookingDetailPage = () => {
                       value={reviewTitle}
                       onChange={(e) => setReviewTitle(e.target.value)}
                       placeholder="e.g. Tempat yang nyaman dan asri!"
-                      className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-sm focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm"
+                      className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-sm focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm"
                     />
                   </div>
 
@@ -296,14 +296,14 @@ const BookingDetailPage = () => {
                       value={reviewComment}
                       onChange={(e) => setReviewComment(e.target.value)}
                       placeholder="Tuliskan pengalaman menginap Anda..."
-                      className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-sm focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm"
+                      className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-sm focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm"
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
                     disabled={submittingReview}
-                    className="bg-[#3f6239] hover:bg-[#304d2c] text-white font-bold px-4 py-2 rounded-xl text-xs transition disabled:opacity-50 cursor-pointer shadow-md hover:shadow-lg"
+                    className="bg-ptpn-700 hover:bg-ptpn-800 text-white font-bold px-4 py-2 rounded-xl text-xs transition disabled:opacity-50 cursor-pointer shadow-md hover:shadow-lg"
                   >
                     {submittingReview ? 'Mengirim...' : 'Kirim Ulasan'}
                   </button>
@@ -336,7 +336,7 @@ const BookingDetailPage = () => {
 
             <div className="flex justify-between text-sm font-bold pt-1">
               <span className="text-slate-800">Total Bayar:</span>
-              <span className="text-[#3f6239]">
+              <span className="text-ptpn-700">
                 Rp {new Intl.NumberFormat('id-ID').format(booking.total_price)}
               </span>
             </div>
@@ -346,7 +346,7 @@ const BookingDetailPage = () => {
           {['pending_payment', 'rejected'].includes(booking.status) && (
             <div className="glass-panel p-5 rounded-2xl border border-emerald-800/10 bg-white/95 shadow-md space-y-4 text-xs font-sans">
               <h3 className="font-bold text-slate-800 text-sm flex items-center gap-1.5">
-                <Upload size={16} className="text-[#3f6239]" /> 
+                <Upload size={16} className="text-ptpn-700" /> 
                 {booking.status === 'rejected' ? 'Upload Ulang Bukti Bayar' : 'Upload Bukti Bayar'}
               </h3>
 
@@ -366,7 +366,7 @@ const BookingDetailPage = () => {
                 {bankAccounts.map((bank) => (
                   <div key={bank.id} className="p-3 bg-slate-50 rounded-xl border border-emerald-800/10 shadow-sm space-y-0.5">
                     <span className="font-bold text-slate-700 block">{bank.bank_name}</span>
-                    <span className="font-mono font-extrabold text-[#3f6239] block text-sm">{bank.account_number}</span>
+                    <span className="font-mono font-extrabold text-ptpn-700 block text-sm">{bank.account_number}</span>
                   </div>
                 ))}
               </div>
@@ -389,7 +389,7 @@ const BookingDetailPage = () => {
                 <button
                   type="submit"
                   disabled={uploading}
-                  className="w-full bg-[#3f6239] hover:bg-[#304d2c] text-white font-bold py-2.5 rounded-xl text-[10px] uppercase tracking-wider transition disabled:opacity-50 cursor-pointer shadow-md hover:shadow-lg"
+                  className="w-full bg-ptpn-700 hover:bg-ptpn-800 text-white font-bold py-2.5 rounded-xl text-[10px] uppercase tracking-wider transition disabled:opacity-50 cursor-pointer shadow-md hover:shadow-lg"
                 >
                   {uploading ? 'Mengunggah...' : 'Kirim Bukti'}
                 </button>

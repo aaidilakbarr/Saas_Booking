@@ -40,14 +40,14 @@ const PropertyListPage = () => {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-            <Hotel className="text-[#3f6239]" /> Daftar Properti Kelolaan
+            <Hotel className="text-ptpn-700" /> Daftar Properti Kelolaan
           </h1>
           <p className="text-sm text-slate-500">Kelola rincian hotel, villa, homestay, serta kelola kamar Anda.</p>
         </div>
         
         <button
           onClick={() => navigate('/manager/properties/create')}
-          className="flex items-center gap-1.5 bg-[#3f6239] hover:bg-[#304d2c] text-white font-bold px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider cursor-pointer shadow-md hover:shadow-lg transition font-sans"
+          className="flex items-center gap-1.5 bg-ptpn-700 hover:bg-ptpn-800 text-white font-bold px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider cursor-pointer shadow-md hover:shadow-lg transition font-sans"
         >
           <Plus size={14} /> Tambah Properti
         </button>
@@ -56,8 +56,8 @@ const PropertyListPage = () => {
       {loading ? (
         <div className="flex flex-col items-center justify-center min-h-[40vh] space-y-4 font-sans">
           <div className="relative flex items-center justify-center">
-            <div className="w-16 h-16 border-4 border-emerald-800/20 border-t-[#3f6239] rounded-full animate-spin"></div>
-            <Loader2 size={24} className="animate-spin text-[#3f6239] absolute" />
+            <div className="w-16 h-16 border-4 border-emerald-800/20 border-t-ptpn-700 rounded-full animate-spin"></div>
+            <Loader2 size={24} className="animate-spin text-ptpn-700 absolute" />
           </div>
           <p className="text-slate-655 text-sm font-bold animate-pulse">Memuat daftar properti Anda...</p>
         </div>
@@ -66,7 +66,7 @@ const PropertyListPage = () => {
           <p>Anda belum mendaftarkan properti penginapan apa pun.</p>
           <button
             onClick={() => navigate('/manager/properties/create')}
-            className="inline-flex bg-[#3f6239] hover:bg-[#304d2c] text-white text-xs font-bold px-4 py-2.5 rounded-xl transition cursor-pointer shadow-sm"
+            className="inline-flex bg-ptpn-700 hover:bg-ptpn-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition cursor-pointer shadow-sm"
           >
             Mulai Tambah Properti
           </button>
@@ -92,7 +92,7 @@ const PropertyListPage = () => {
                   </div>
                 )}
                 <div className="absolute top-3 left-3 flex gap-2">
-                  <span className="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/90 border border-emerald-800/10 text-[#3f6239] shadow-sm">
+                  <span className="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/90 border border-emerald-800/10 text-ptpn-700 shadow-sm">
                     {property.type}
                   </span>
                   <span className={`text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${
@@ -112,7 +112,7 @@ const PropertyListPage = () => {
                     {property.name}
                   </h3>
                   <p className="text-xs text-slate-500 flex items-center gap-1 font-medium">
-                    <MapPin size={12} className="text-[#3f6239]" /> {property.city}, {property.province}
+                    <MapPin size={12} className="text-ptpn-700" /> {property.city}, {property.province}
                   </p>
                 </div>
 
@@ -120,7 +120,7 @@ const PropertyListPage = () => {
                 <div className="pt-4 border-t border-emerald-800/10 flex flex-wrap gap-2 items-center justify-between mt-4">
                   <button
                     onClick={() => navigate(`/manager/properties/${property.id}/rooms`)}
-                    className="flex items-center gap-1.5 bg-emerald-50 hover:bg-emerald-100 text-[#3f6239] border border-emerald-200 text-[10px] uppercase tracking-wider font-bold px-3 py-2 rounded-xl transition cursor-pointer shadow-sm"
+                    className="flex items-center gap-1.5 bg-emerald-50 hover:bg-emerald-100 text-ptpn-700 border border-emerald-200 text-[10px] uppercase tracking-wider font-bold px-3 py-2 rounded-xl transition cursor-pointer shadow-sm"
                   >
                     <BedDouble size={14} /> Kelola Kamar
                   </button>

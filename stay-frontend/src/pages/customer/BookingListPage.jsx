@@ -68,7 +68,7 @@ const BookingListPage = () => {
 
       {showNotification && (
         <div className="p-4 rounded-xl border border-emerald-200 bg-emerald-50 text-emerald-700 text-sm flex gap-2.5 items-center font-sans shadow-sm">
-          <CheckCircle2 size={20} className="text-[#3f6239] shrink-0" />
+          <CheckCircle2 size={20} className="text-ptpn-700 shrink-0" />
           <div>
             <span className="font-bold block">Bukti transfer berhasil diunggah!</span>
             <span className="text-xs text-slate-500 font-medium">Status pesanan Anda telah berubah menjadi "Verifikasi Pembayaran". Tim Finance akan meninjau unggahan Anda secepatnya.</span>
@@ -79,8 +79,8 @@ const BookingListPage = () => {
       {loading ? (
         <div className="flex flex-col items-center justify-center py-20 space-y-4 font-sans">
           <div className="relative flex items-center justify-center">
-            <div className="w-16 h-16 border-4 border-emerald-800/20 border-t-[#3f6239] rounded-full animate-spin"></div>
-            <Loader2 size={24} className="animate-spin text-[#3f6239] absolute" />
+            <div className="w-16 h-16 border-4 border-emerald-800/20 border-t-ptpn-700 rounded-full animate-spin"></div>
+            <Loader2 size={24} className="animate-spin text-ptpn-700 absolute" />
           </div>
           <p className="text-slate-655 text-sm font-bold animate-pulse">Memuat riwayat reservasi...</p>
         </div>
@@ -89,7 +89,7 @@ const BookingListPage = () => {
           <p>Anda belum pernah melakukan reservasi penginapan.</p>
           <button
             onClick={() => navigate('/search')}
-            className="inline-flex bg-[#3f6239] hover:bg-[#304d2c] text-white text-xs font-bold px-4 py-2.5 rounded-xl transition cursor-pointer shadow-sm"
+            className="inline-flex bg-ptpn-700 hover:bg-ptpn-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition cursor-pointer shadow-sm"
           >
             Cari Penginapan Sekarang
           </button>
@@ -125,7 +125,7 @@ const BookingListPage = () => {
               <div className="flex sm:flex-col items-end justify-between w-full sm:w-auto shrink-0 border-t sm:border-t-0 border-slate-200/60 pt-3 sm:pt-0">
                 <div className="text-left sm:text-right mb-2">
                   <span className="text-[10px] text-slate-550 block font-semibold">Total Biaya</span>
-                  <span className="text-sm font-extrabold text-[#3f6239]">
+                  <span className="text-sm font-extrabold text-ptpn-700">
                     Rp {new Intl.NumberFormat('id-ID').format(booking.total_price)}
                   </span>
                 </div>
@@ -141,7 +141,7 @@ const BookingListPage = () => {
                   {booking.status === 'checked_out' && !booking.payment?.booking?.review && (
                     <button
                       onClick={() => navigate(`/account/bookings/${booking.booking_code}`)}
-                      className="inline-flex items-center gap-1.5 bg-[#3f6239] hover:bg-[#304d2c] text-white text-xs font-bold px-3.5 py-2 rounded-xl transition cursor-pointer shadow-md hover:shadow-lg"
+                      className="inline-flex items-center gap-1.5 bg-ptpn-700 hover:bg-ptpn-800 text-white text-xs font-bold px-3.5 py-2 rounded-xl transition cursor-pointer shadow-md hover:shadow-lg"
                     >
                       <MessageSquareText size={14} /> Tulis Ulasan
                     </button>

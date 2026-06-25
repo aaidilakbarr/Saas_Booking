@@ -21,11 +21,11 @@ const NotFoundPage = () => {
         <div className="relative z-10 space-y-4">
           <div className="relative flex items-center justify-center mx-auto w-20 h-20 bg-[#eef3ee] rounded-full border border-emerald-800/10">
             <div className="absolute w-12 h-12 bg-emerald-800/10 rounded-full animate-ping"></div>
-            <HelpCircle size={40} className="text-[#3f6239] relative" />
+            <HelpCircle size={40} className="text-ptpn-700 relative" />
           </div>
 
           <div className="space-y-2">
-            <h1 className="text-6xl font-extrabold text-[#3f6239] tracking-tight leading-none">
+            <h1 className="text-6xl font-extrabold text-ptpn-700 tracking-tight leading-none">
               404
             </h1>
             <h2 className="text-sm font-bold text-slate-800 uppercase tracking-wider">
@@ -39,7 +39,7 @@ const NotFoundPage = () => {
           <div className="pt-4">
             <Link
               to="/"
-              className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl bg-[#3f6239] hover:bg-[#304d2c] text-white text-xs font-bold transition-all uppercase tracking-wider shadow-md shadow-emerald-800/10 hover:shadow-lg cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl bg-ptpn-700 hover:bg-ptpn-800 text-white text-xs font-bold transition-all uppercase tracking-wider shadow-md shadow-emerald-800/10 hover:shadow-lg cursor-pointer"
             >
               <ArrowLeft size={14} /> Kembali ke Beranda
             </Link>

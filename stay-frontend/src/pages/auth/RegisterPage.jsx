@@ -64,7 +64,7 @@ const RegisterPage = () => {
         </h2>
         <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">
           Sudah punya akun?{' '}
-          <Link to="/login" className="font-bold text-[#3f6239] hover:text-[#304d2c] transition">
+          <Link to="/login" className="font-bold text-ptpn-700 hover:text-ptpn-800 transition">
             Masuk di sini
           </Link>
         </p>
@@ -196,7 +196,7 @@ const RegisterPage = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl shadow-md shadow-emerald-800/10 hover:shadow-lg text-xs font-bold text-white bg-[#3f6239] hover:bg-[#304d2c] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-800 disabled:opacity-50 transition-all uppercase tracking-wider cursor-pointer"
+                className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl shadow-md shadow-emerald-800/10 hover:shadow-lg text-xs font-bold text-white bg-ptpn-700 hover:bg-ptpn-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-800 disabled:opacity-50 transition-all uppercase tracking-wider cursor-pointer"
               >
                 {isLoading ? (
                   <span className="flex items-center gap-2">

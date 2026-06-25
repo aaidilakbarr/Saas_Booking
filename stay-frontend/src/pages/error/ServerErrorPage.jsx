@@ -45,11 +45,11 @@ const ServerErrorPage = () => {
               onClick={handleReload}
               className="inline-flex items-center justify-center gap-1.5 w-full py-3.5 px-4 rounded-xl bg-[#f4f7f4]/80 hover:bg-[#eef3ee] text-slate-700 text-xs font-bold transition-all uppercase tracking-wider border border-emerald-800/10 cursor-pointer shadow-sm"
             >
-              <RefreshCw size={14} className="text-[#3f6239]" /> Muat Ulang
+              <RefreshCw size={14} className="text-ptpn-700" /> Muat Ulang
             </button>
             <Link
               to="/"
-              className="inline-flex items-center justify-center gap-1.5 w-full py-3.5 px-4 rounded-xl bg-[#3f6239] hover:bg-[#304d2c] text-white text-xs font-bold transition-all uppercase tracking-wider shadow-md shadow-emerald-800/10 hover:shadow-lg cursor-pointer"
+              className="inline-flex items-center justify-center gap-1.5 w-full py-3.5 px-4 rounded-xl bg-ptpn-700 hover:bg-ptpn-800 text-white text-xs font-bold transition-all uppercase tracking-wider shadow-md shadow-emerald-800/10 hover:shadow-lg cursor-pointer"
             >
               <Home size={14} /> Ke Beranda
             </Link>

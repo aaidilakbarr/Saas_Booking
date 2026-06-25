@@ -85,8 +85,8 @@ const ResetPasswordPage = () => {
 
           {success ? (
             <div className="text-center py-4 space-y-4 relative z-10 text-xs">
-              <div className="flex justify-center text-[#3f6239]">
-                <CheckCircle2 size={40} className="text-[#3f6239]" />
+              <div className="flex justify-center text-ptpn-700">
+                <CheckCircle2 size={40} className="text-ptpn-700" />
               </div>
               <h3 className="text-base font-bold text-slate-800 uppercase tracking-wider">Berhasil Diatur Ulang!</h3>
               <p className="text-xs text-slate-600 leading-relaxed font-medium">
@@ -95,7 +95,7 @@ const ResetPasswordPage = () => {
               <div className="pt-4">
                 <Link
                   to="/login"
-                  className="w-full flex justify-center py-3.5 px-4 rounded-xl bg-[#3f6239] hover:bg-[#304d2c] text-white text-xs font-bold transition-all uppercase tracking-wider shadow-md shadow-emerald-800/10 hover:shadow-lg cursor-pointer"
+                  className="w-full flex justify-center py-3.5 px-4 rounded-xl bg-ptpn-700 hover:bg-ptpn-800 text-white text-xs font-bold transition-all uppercase tracking-wider shadow-md shadow-emerald-800/10 hover:shadow-lg cursor-pointer"
                 >
                   Masuk Sekarang
                 </Link>
@@ -162,7 +162,7 @@ const ResetPasswordPage = () => {
                 <button
                   type="submit"
                   disabled={isLoading || !token || !email}
-                  className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl shadow-md shadow-emerald-800/10 hover:shadow-lg text-xs font-bold text-white bg-[#3f6239] hover:bg-[#304d2c] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-800 disabled:opacity-50 transition-all uppercase tracking-wider cursor-pointer"
+                  className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl shadow-md shadow-emerald-800/10 hover:shadow-lg text-xs font-bold text-white bg-ptpn-700 hover:bg-ptpn-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-800 disabled:opacity-50 transition-all uppercase tracking-wider cursor-pointer"
                 >
                   {isLoading ? (
                     <span className="flex items-center gap-2">

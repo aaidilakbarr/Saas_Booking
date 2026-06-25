@@ -178,8 +178,8 @@ const RoomTypeListPage = () => {
     return (
       <div className="flex flex-col items-center justify-center min-h-[50vh] space-y-4 font-sans">
         <div className="relative flex items-center justify-center">
-          <div className="w-16 h-16 border-4 border-emerald-800/20 border-t-[#3f6239] rounded-full animate-spin"></div>
-          <Loader2 size={24} className="animate-spin text-[#3f6239] absolute" />
+          <div className="w-16 h-16 border-4 border-emerald-800/20 border-t-ptpn-700 rounded-full animate-spin"></div>
+          <Loader2 size={24} className="animate-spin text-ptpn-700 absolute" />
         </div>
         <p className="text-slate-655 text-sm font-bold animate-pulse">Memuat rincian tipe kamar...</p>
       </div>
@@ -200,7 +200,7 @@ const RoomTypeListPage = () => {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-            <BedDouble className="text-[#3f6239]" /> Kelola Kamar — {property?.name}
+            <BedDouble className="text-ptpn-700" /> Kelola Kamar — {property?.name}
           </h1>
           <p className="text-sm text-slate-500">Atur harga weekday/weekend, kapasitas tamu, stok kamar, dan galeri foto kamar.</p>
         </div>
@@ -208,7 +208,7 @@ const RoomTypeListPage = () => {
         {!showForm && (
           <button
             onClick={handleOpenCreate}
-            className="flex items-center gap-1.5 bg-[#3f6239] hover:bg-[#304d2c] text-white font-bold px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow-sm shrink-0 cursor-pointer font-sans"
+            className="flex items-center gap-1.5 bg-ptpn-700 hover:bg-ptpn-800 text-white font-bold px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider transition shadow-sm shrink-0 cursor-pointer font-sans"
           >
             <Plus size={14} /> Tambah Tipe Kamar
           </button>
@@ -245,7 +245,7 @@ const RoomTypeListPage = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g. Deluxe Room, Suite Cottage"
-                  className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm"
+                  className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm"
                 />
               </div>
               <div>
@@ -253,7 +253,7 @@ const RoomTypeListPage = () => {
                 <select
                   value={status}
                   onChange={(e) => setStatus(e.target.value)}
-                  className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm cursor-pointer"
+                  className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm cursor-pointer"
                 >
                   <option value="available">Tersedia (Active)</option>
                   <option value="unavailable">Penuh / Tidak Tersedia</option>
@@ -270,7 +270,7 @@ const RoomTypeListPage = () => {
                   value={priceWeekday}
                   onChange={(e) => setPriceWeekday(e.target.value)}
                   placeholder="e.g. 350000"
-                  className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm"
+                  className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm"
                 />
               </div>
               <div>
@@ -281,7 +281,7 @@ const RoomTypeListPage = () => {
                   value={priceWeekend}
                   onChange={(e) => setPriceWeekend(e.target.value)}
                   placeholder="e.g. 450000"
-                  className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm"
+                  className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm"
                 />
               </div>
               <div>
@@ -292,7 +292,7 @@ const RoomTypeListPage = () => {
                   value={capacity}
                   min="1"
                   onChange={(e) => setCapacity(e.target.value)}
-                  className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm"
+                  className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm"
                 />
               </div>
               <div>
@@ -303,7 +303,7 @@ const RoomTypeListPage = () => {
                   value={stock}
                   min="0"
                   onChange={(e) => setStock(e.target.value)}
-                  className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm"
+                  className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm"
                 />
               </div>
             </div>
@@ -316,7 +316,7 @@ const RoomTypeListPage = () => {
                   value={sizeSqm}
                   onChange={(e) => setSizeSqm(e.target.value)}
                   placeholder="e.g. 24"
-                  className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm"
+                  className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm"
                 />
               </div>
               <div className="sm:col-span-3">
@@ -326,7 +326,7 @@ const RoomTypeListPage = () => {
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="e.g. Kamar mandi dalam dengan air hangat, menghadap langsung ke perbukitan teh."
-                  className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm"
+                  className="w-full px-3 py-2 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm"
                 />
               </div>
             </div>
@@ -341,7 +341,7 @@ const RoomTypeListPage = () => {
                       type="checkbox"
                       checked={selectedAmenities.includes(item.value)}
                       onChange={() => handleAmenityChange(item.value)}
-                      className="rounded border-emerald-800/15 text-[#3f6239] focus:ring-0 w-3.5 h-3.5 cursor-pointer"
+                      className="rounded border-emerald-800/15 text-ptpn-700 focus:ring-0 w-3.5 h-3.5 cursor-pointer"
                     />
                     <span>{item.label}</span>
                   </label>
@@ -352,7 +352,7 @@ const RoomTypeListPage = () => {
             <button
               type="submit"
               disabled={saving}
-              className="flex items-center justify-center gap-1.5 bg-[#3f6239] hover:bg-[#304d2c] text-white font-bold px-4 py-2.5 rounded-xl transition cursor-pointer disabled:opacity-50 shadow-sm"
+              className="flex items-center justify-center gap-1.5 bg-ptpn-700 hover:bg-ptpn-800 text-white font-bold px-4 py-2.5 rounded-xl transition cursor-pointer disabled:opacity-50 shadow-sm"
             >
               {saving ? (
                 <>
@@ -396,7 +396,7 @@ const RoomTypeListPage = () => {
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs bg-slate-50 p-4 rounded-xl border border-emerald-800/10 shadow-sm">
                   <div>
                     <span className="text-slate-555 block font-semibold">Weekday / Weekend Price</span>
-                    <span className="font-extrabold text-[#3f6239] text-sm">
+                    <span className="font-extrabold text-ptpn-700 text-sm">
                       Rp {new Intl.NumberFormat('id-ID').format(room.price_weekday)}
                     </span>
                     <span className="text-slate-500 font-medium text-[10px]"> / Rp {new Intl.NumberFormat('id-ID').format(room.price_weekend)}</span>
@@ -419,7 +419,7 @@ const RoomTypeListPage = () => {
 
                 <div className="flex flex-wrap gap-1.5">
                   {room.amenities && room.amenities.map((amenity, idx) => (
-                    <span key={idx} className="text-[10px] px-2.5 py-1 bg-white text-[#3f6239] rounded-full border border-emerald-800/10 shadow-sm font-bold">
+                    <span key={idx} className="text-[10px] px-2.5 py-1 bg-white text-ptpn-700 rounded-full border border-emerald-800/10 shadow-sm font-bold">
                       {amenity}
                     </span>
                   ))}
@@ -470,7 +470,7 @@ const RoomTypeListPage = () => {
                   <button
                     onClick={() => handleUploadImages(room.id)}
                     disabled={uploadingForId === room.id}
-                    className="w-full flex items-center justify-center gap-1.5 bg-[#3f6239] hover:bg-[#304d2c] text-white font-bold py-2 rounded-xl text-[10px] uppercase tracking-wider transition cursor-pointer disabled:opacity-50 shadow-sm"
+                    className="w-full flex items-center justify-center gap-1.5 bg-ptpn-700 hover:bg-ptpn-800 text-white font-bold py-2 rounded-xl text-[10px] uppercase tracking-wider transition cursor-pointer disabled:opacity-50 shadow-sm"
                   >
                     {uploadingForId === room.id ? (
                       <>

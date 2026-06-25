@@ -73,8 +73,8 @@ const PaymentDetailPage = () => {
     return (
       <div className="flex flex-col items-center justify-center min-h-[50vh] space-y-4">
         <div className="relative flex items-center justify-center">
-          <div className="w-16 h-16 border-4 border-emerald-800/20 border-t-[#3f6239] rounded-full animate-spin"></div>
-          <Loader2 size={24} className="animate-spin text-[#3f6239] absolute" />
+          <div className="w-16 h-16 border-4 border-emerald-800/20 border-t-ptpn-700 rounded-full animate-spin"></div>
+          <Loader2 size={24} className="animate-spin text-ptpn-700 absolute" />
         </div>
         <p className="text-slate-600 text-sm font-medium animate-pulse">Memuat bukti pembayaran...</p>
       </div>
@@ -133,13 +133,13 @@ const PaymentDetailPage = () => {
                 // PDF fallback or render as image
                 payment.proof_path.toLowerCase().endsWith('.pdf') ? (
                   <div className="text-center p-6 space-y-4">
-                    <ShieldAlert size={48} className="text-[#3f6239] mx-auto" />
+                    <ShieldAlert size={48} className="text-ptpn-700 mx-auto" />
                     <p className="text-xs text-slate-500 font-medium">Bukti diunggah dalam format PDF.</p>
                     <a
                       href={`http://127.0.0.1:8000/storage/${payment.proof_path}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#3f6239] hover:bg-[#304d2c] text-white font-bold text-xs transition cursor-pointer shadow-sm"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-ptpn-700 hover:bg-ptpn-800 text-white font-bold text-xs transition cursor-pointer shadow-sm"
                     >
                       <Download size={14} /> Unduh PDF
                     </a>
@@ -198,7 +198,7 @@ const PaymentDetailPage = () => {
               </div>
               <div className="col-span-2 pt-2 border-t border-emerald-800/10 flex justify-between items-center text-sm">
                 <span className="text-slate-550 font-semibold">Total Yang Harus Dibayar:</span>
-                <span className="font-extrabold text-[#3f6239] text-base">
+                <span className="font-extrabold text-ptpn-700 text-base">
                   Rp {new Intl.NumberFormat('id-ID').format(booking.total_price)}
                 </span>
               </div>
@@ -211,7 +211,7 @@ const PaymentDetailPage = () => {
               <button
                 onClick={handleConfirm}
                 disabled={submitting}
-                className="flex-1 flex items-center justify-center gap-1.5 bg-[#3f6239] hover:bg-[#304d2c] text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider transition disabled:opacity-50 cursor-pointer shadow-md hover:shadow-lg"
+                className="flex-1 flex items-center justify-center gap-1.5 bg-ptpn-700 hover:bg-ptpn-800 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider transition disabled:opacity-50 cursor-pointer shadow-md hover:shadow-lg"
               >
                 <Check size={16} /> Konfirmasi Valid
               </button>
@@ -239,7 +239,7 @@ const PaymentDetailPage = () => {
                   value={rejectionReason}
                   onChange={(e) => setRejectionReason(e.target.value)}
                   placeholder="Sebutkan alasan penolakan secara jelas (e.g. Nominal tidak sesuai, struk tidak terbaca/palsu)..."
-                  className="w-full p-3 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-[#3f6239] focus:ring-1 focus:ring-[#3f6239] focus:outline-none transition-all shadow-sm"
+                  className="w-full p-3 bg-white border border-emerald-800/15 rounded-xl text-slate-800 text-xs focus:border-ptpn-700 focus:ring-1 focus:ring-ptpn-700 focus:outline-none transition-all shadow-sm"
                 ></textarea>
                 
                 <div className="flex gap-2">
@@ -265,7 +265,7 @@ const PaymentDetailPage = () => {
           {/* Info if already validated */}
           {!isPending && (
             <div className="glass-panel p-5 rounded-2xl border border-emerald-800/10 bg-white/95 flex items-center gap-3 text-xs text-slate-650 shadow-sm">
-              <ShieldCheck size={20} className="text-[#3f6239] shrink-0" />
+              <ShieldCheck size={20} className="text-ptpn-700 shrink-0" />
               <div>
                 <p className="font-bold text-slate-850">Pembayaran telah diproses.</p>
                 <p>
