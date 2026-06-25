@@ -65,7 +65,6 @@ const Footer = () => {
 
         <div className="border-t border-slate-900 mt-8 pt-8 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p>© {new Date().getFullYear()} PT Perkebunan Nusantara IV (Persero). Hak Cipta Dilindungi Undang-Undang.</p>
-          <p className="text-slate-600">Designed with UI-UX Pro Max</p>
         </div>
       </div>
     </footer>

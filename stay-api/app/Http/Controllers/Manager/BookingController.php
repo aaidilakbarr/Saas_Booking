@@ -17,13 +17,19 @@ class BookingController extends Controller
     {
         $user = $request->user();
         
-        $propertyIds = Property::where('user_id', $user->id)->pluck('id');
-        $roomTypeIds = RoomType::whereIn('property_id', $propertyIds)->pluck('id');
+        if ($user->role === 'finance') {
+            $bookings = Booking::with(['user', 'roomType.property', 'payment'])
+                ->orderBy('created_at', 'desc')
+                ->get();
+        } else {
+            $propertyIds = Property::where('user_id', $user->id)->pluck('id');
+            $roomTypeIds = RoomType::whereIn('property_id', $propertyIds)->pluck('id');
 
-        $bookings = Booking::whereIn('room_type_id', $roomTypeIds)
-            ->with(['user', 'roomType.property', 'payment'])
-            ->orderBy('created_at', 'desc')
-            ->get();
+            $bookings = Booking::whereIn('room_type_id', $roomTypeIds)
+                ->with(['user', 'roomType.property', 'payment'])
+                ->orderBy('created_at', 'desc')
+                ->get();
+        }
 
         return response()->json($bookings);
     }
@@ -35,13 +41,19 @@ class BookingController extends Controller
     {
         $user = $request->user();
         
-        $propertyIds = Property::where('user_id', $user->id)->pluck('id');
-        $roomTypeIds = RoomType::whereIn('property_id', $propertyIds)->pluck('id');
+        if ($user->role === 'finance') {
+            $booking = Booking::where('booking_code', $bookingCode)
+                ->with(['user', 'roomType.property', 'payment', 'review'])
+                ->firstOrFail();
+        } else {
+            $propertyIds = Property::where('user_id', $user->id)->pluck('id');
+            $roomTypeIds = RoomType::whereIn('property_id', $propertyIds)->pluck('id');
 
-        $booking = Booking::where('booking_code', $bookingCode)
-            ->whereIn('room_type_id', $roomTypeIds)
-            ->with(['user', 'roomType.property', 'payment', 'review'])
-            ->firstOrFail();
+            $booking = Booking::where('booking_code', $bookingCode)
+                ->whereIn('room_type_id', $roomTypeIds)
+                ->with(['user', 'roomType.property', 'payment', 'review'])
+                ->firstOrFail();
+        }
 
         return response()->json($booking);
     }
@@ -53,12 +65,16 @@ class BookingController extends Controller
     {
         $user = $request->user();
         
-        $propertyIds = Property::where('user_id', $user->id)->pluck('id');
-        $roomTypeIds = RoomType::whereIn('property_id', $propertyIds)->pluck('id');
+        if ($user->role === 'finance') {
+            $booking = Booking::where('booking_code', $bookingCode)->firstOrFail();
+        } else {
+            $propertyIds = Property::where('user_id', $user->id)->pluck('id');
+            $roomTypeIds = RoomType::whereIn('property_id', $propertyIds)->pluck('id');
 
-        $booking = Booking::where('booking_code', $bookingCode)
-            ->whereIn('room_type_id', $roomTypeIds)
-            ->firstOrFail();
+            $booking = Booking::where('booking_code', $bookingCode)
+                ->whereIn('room_type_id', $roomTypeIds)
+                ->firstOrFail();
+        }
 
         if ($booking->status !== 'confirmed') {
             return response()->json([
@@ -82,12 +98,16 @@ class BookingController extends Controller
     {
         $user = $request->user();
         
-        $propertyIds = Property::where('user_id', $user->id)->pluck('id');
-        $roomTypeIds = RoomType::whereIn('property_id', $propertyIds)->pluck('id');
+        if ($user->role === 'finance') {
+            $booking = Booking::where('booking_code', $bookingCode)->firstOrFail();
+        } else {
+            $propertyIds = Property::where('user_id', $user->id)->pluck('id');
+            $roomTypeIds = RoomType::whereIn('property_id', $propertyIds)->pluck('id');
 
-        $booking = Booking::where('booking_code', $bookingCode)
-            ->whereIn('room_type_id', $roomTypeIds)
-            ->firstOrFail();
+            $booking = Booking::where('booking_code', $bookingCode)
+                ->whereIn('room_type_id', $roomTypeIds)
+                ->firstOrFail();
+        }
 
         if ($booking->status !== 'checked_in') {
             return response()->json([

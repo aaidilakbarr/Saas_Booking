@@ -71,13 +71,15 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/manager/room-types/{id}', [ManagerRoomTypeController::class, 'update']); // POST to handle updates with multipart form data
         Route::delete('/manager/room-types/{id}', [ManagerRoomTypeController::class, 'destroy']);
         Route::post('/manager/room-types/{id}/images', [ManagerRoomTypeController::class, 'uploadImages']);
+        Route::get('/manager/dashboard', [ManagerDashboardController::class, 'index']);
+    });
 
+    // Shared Booking Routes (Property Manager & Finance)
+    Route::middleware('role:property_manager,finance')->group(function () {
         Route::get('/manager/bookings', [ManagerBookingController::class, 'index']);
         Route::get('/manager/bookings/{booking_code}', [ManagerBookingController::class, 'show']);
         Route::put('/manager/bookings/{booking_code}/check-in', [ManagerBookingController::class, 'checkIn']);
         Route::put('/manager/bookings/{booking_code}/check-out', [ManagerBookingController::class, 'checkOut']);
-
-        Route::get('/manager/dashboard', [ManagerDashboardController::class, 'index']);
     });
 
     // Finance Roles

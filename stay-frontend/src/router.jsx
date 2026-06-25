@@ -153,7 +153,7 @@ export const router = createBrowserRouter([
       {
         path: '/manager/bookings',
         element: (
-          <ProtectedRoute allowedRoles={['property_manager']}>
+          <ProtectedRoute allowedRoles={['property_manager', 'finance']}>
             <ManagerBookingList />
           </ProtectedRoute>
         ),

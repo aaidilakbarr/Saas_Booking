@@ -129,6 +129,14 @@ const Navbar = () => {
                       Antrian Bayar
                     </Link>
                     <Link
+                      to="/manager/bookings"
+                      className={`text-sm font-semibold transition-colors cursor-pointer ${
+                        isActive('/manager/bookings') ? 'text-emerald-700 font-bold' : 'text-slate-650 hover:text-emerald-700'
+                      }`}
+                    >
+                      Reservasi
+                    </Link>
+                    <Link
                       to="/finance/reports"
                       className={`text-sm font-semibold transition-colors cursor-pointer ${
                         isActive('/finance/reports') ? 'text-emerald-700 font-bold' : 'text-slate-650 hover:text-emerald-700'
@@ -296,6 +304,13 @@ const Navbar = () => {
                     className="block px-3 py-2 rounded-md text-base font-semibold text-slate-700 hover:bg-emerald-50/50 hover:text-emerald-800"
                   >
                     Antrian Pembayaran
+                  </Link>
+                  <Link
+                    to="/manager/bookings"
+                    onClick={() => setIsOpen(false)}
+                    className="block px-3 py-2 rounded-md text-base font-semibold text-slate-700 hover:bg-emerald-50/50 hover:text-emerald-800"
+                  >
+                    Reservasi
                   </Link>
                   <Link
                     to="/finance/reports"
