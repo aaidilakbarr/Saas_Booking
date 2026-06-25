@@ -1,7 +1,51 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import api from '../../lib/axios';
-import { Calendar, Users, MapPin, CreditCard, Upload, Loader2, Star, ShieldAlert, AlertTriangle, ArrowLeft, MessageSquareText } from 'lucide-react';
+import { Calendar, Users, MapPin, CreditCard, Upload, Loader2, Star, ShieldAlert, AlertTriangle, ArrowLeft, MessageSquareText, Printer } from 'lucide-react';
+
+// Barcode component to generate a vector SVG representation of the booking code
+const Barcode = ({ value }) => {
+  // Deterministic barcode lines generator
+  const stringToBars = (str) => {
+    let result = "101"; // start pattern
+    const input = str || "BOOKING";
+    for (let i = 0; i < input.length; i++) {
+      const charCode = input.charCodeAt(i);
+      let charPattern = "";
+      let temp = charCode;
+      for (let j = 0; j < 6; j++) {
+        charPattern += (temp & 1) ? "110" : "100";
+        temp = temp >> 1;
+      }
+      result += charPattern;
+    }
+    result += "11011"; // stop pattern
+    return result;
+  };
+
+  const bars = stringToBars(value);
+  
+  return (
+    <div className="flex flex-col items-center space-y-1">
+      <svg className="w-full h-10" viewBox={`0 0 ${bars.length * 2} 40`} preserveAspectRatio="none">
+        {bars.split('').map((bit, idx) => (
+          bit === '1' && (
+            <rect
+              key={idx}
+              x={idx * 2}
+              y={0}
+              width={2}
+              height={40}
+              fill="currentColor"
+              className="text-slate-800"
+            />
+          )
+        ))}
+      </svg>
+      <span className="font-mono text-[9px] tracking-[0.25em] font-bold text-slate-600 uppercase">{value}</span>
+    </div>
+  );
+};
 
 const BookingDetailPage = () => {
   const { code } = useParams();
@@ -351,7 +395,7 @@ const BookingDetailPage = () => {
               </h3>
 
               {booking.status === 'rejected' && booking.payment?.rejection_reason && (
-                <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-red-750 leading-normal flex gap-1.5 font-medium shadow-sm">
+                <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-red-755 leading-normal flex gap-1.5 font-medium shadow-sm">
                   <ShieldAlert size={16} className="shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold block">Alasan Penolakan Finance:</span>
@@ -394,6 +438,97 @@ const BookingDetailPage = () => {
                   {uploading ? 'Mengunggah...' : 'Kirim Bukti'}
                 </button>
               </form>
+            </div>
+          )}
+
+          {/* Invoice section for successful payment */}
+          {['confirmed', 'checked_in', 'checked_out'].includes(booking.status) && (
+            <div className="space-y-4 font-sans">
+              <div className="printable-invoice glass-panel p-6 rounded-2xl border border-emerald-800/10 bg-white shadow-md relative overflow-hidden space-y-5">
+                {/* PAID stamp watermark */}
+                <div className="absolute right-4 top-4 border-2 border-dashed border-emerald-600/30 text-emerald-600/40 text-[10px] font-black tracking-widest px-2 py-1 rounded uppercase transform rotate-12 pointer-events-none select-none">
+                  Lunas
+                </div>
+
+                {/* Invoice Header */}
+                <div className="text-center pb-4 border-b border-slate-100">
+                  <span className="text-[10px] uppercase font-bold text-ptpn-600 tracking-wider">Akomodasi PTPN IV</span>
+                  <h3 className="text-sm font-extrabold text-slate-800 mt-0.5">INVOICE PEMBAYARAN</h3>
+                  <span className="text-[9px] text-slate-400 font-medium">No: INV/{booking.booking_code}</span>
+                </div>
+
+                {/* Booking & Guest Info */}
+                <div className="space-y-2.5 text-xs text-left">
+                  <div>
+                    <span className="text-slate-400 block font-semibold text-[9px] uppercase tracking-wider">Nama Properti</span>
+                    <span className="text-slate-800 font-bold">{booking.room_type?.property?.name}</span>
+                  </div>
+                  <div>
+                    <span className="text-slate-400 block font-semibold text-[9px] uppercase tracking-wider">Tipe Kamar</span>
+                    <span className="text-slate-750 font-bold">{booking.room_type?.name}</span>
+                  </div>
+                  <div>
+                    <span className="text-slate-400 block font-semibold text-[9px] uppercase tracking-wider">Nama Tamu</span>
+                    <span className="text-slate-750 font-bold">{booking.guest_name}</span>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-2 pt-1">
+                    <div>
+                      <span className="text-slate-400 block font-semibold text-[9px] uppercase tracking-wider">Check-In</span>
+                      <span className="text-slate-750 font-bold">{booking.check_in}</span>
+                    </div>
+                    <div>
+                      <span className="text-slate-400 block font-semibold text-[9px] uppercase tracking-wider">Check-Out</span>
+                      <span className="text-slate-750 font-bold">{booking.check_out}</span>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 pt-1">
+                    <div>
+                      <span className="text-slate-400 block font-semibold text-[9px] uppercase tracking-wider">Jumlah Tamu</span>
+                      <span className="text-slate-750 font-bold">{booking.guest_count} Tamu</span>
+                    </div>
+                    <div>
+                      <span className="text-slate-400 block font-semibold text-[9px] uppercase tracking-wider">Durasi</span>
+                      <span className="text-slate-750 font-bold">{booking.nights} Malam</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Tear-off dotted separator */}
+                <div className="ticket-dashed-line my-4"></div>
+
+                {/* Pricing & Status */}
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center text-xs">
+                    <span className="text-slate-500 font-semibold">Status Pembayaran:</span>
+                    <span className="px-2 py-0.5 rounded-full text-[9px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 uppercase tracking-wider">
+                      Terverifikasi
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-baseline pt-1">
+                    <span className="text-slate-500 font-semibold text-xs">Total Pembayaran:</span>
+                    <span className="text-base font-extrabold text-ptpn-700">
+                      Rp {new Intl.NumberFormat('id-ID').format(booking.total_price)}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Barcode representation */}
+                <div className="pt-4 border-t border-slate-100">
+                  <Barcode value={booking.booking_code} />
+                </div>
+              </div>
+
+              {/* Action Button outside printable card */}
+              <div className="no-print">
+                <button
+                  onClick={() => window.print()}
+                  className="w-full bg-ptpn-700 hover:bg-ptpn-800 text-white font-bold py-2.5 rounded-xl text-xs uppercase tracking-wider transition cursor-pointer flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+                >
+                  <Printer size={14} /> Cetak Invoice
+                </button>
+              </div>
             </div>
           )}
         </div>
