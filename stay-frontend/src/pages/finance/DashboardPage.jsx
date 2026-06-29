@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../../lib/axios';
 import { LayoutDashboard, BadgeCent, TrendingUp, ShieldAlert, BookOpen, Loader2, ArrowRight } from 'lucide-react';
+import AreaChart from '../../components/common/AreaChart';
+import BarChart from '../../components/common/BarChart';
 
 const DashboardPage = () => {
   const [data, setData] = useState(null);
@@ -107,25 +109,16 @@ const DashboardPage = () => {
               Belum ada transaksi pendapatan masuk.
             </div>
           ) : (
-            <div className="flex items-end justify-between h-48 pt-4 px-2 font-sans">
-              {monthlyRevenue.map((m, idx) => {
-                const maxVal = Math.max(...monthlyRevenue.map(item => item.total)) || 1;
-                const pct = Math.max(10, (m.total / maxVal) * 100);
+            <AreaChart
+              data={monthlyRevenue.map(m => {
                 const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
-                return (
-                  <div key={idx} className="flex flex-col items-center gap-2 flex-1 group">
-                    <div className="text-[10px] text-slate-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">
-                      Rp {new Intl.NumberFormat('id-ID', { notation: 'compact' }).format(m.total)}
-                    </div>
-                    <div
-                      style={{ height: `${pct}%` }}
-                      className="w-10 rounded-t bg-gradient-to-t from-ptpn-700 to-emerald-700 group-hover:from-emerald-700 group-hover:to-teal-500 transition-all duration-500 shadow-sm"
-                    ></div>
-                    <span className="text-[10px] text-slate-500 font-medium">{monthNames[m.month - 1]} '{String(m.year).substring(2)}</span>
-                  </div>
-                );
+                return {
+                  label: `${monthNames[m.month - 1]} '${String(m.year).substring(2)}`,
+                  value: Number(m.total)
+                };
               })}
-            </div>
+              heightClass="h-56"
+            />
           )}
         </div>
 
@@ -154,24 +147,14 @@ const DashboardPage = () => {
         {dailyTransactions.length === 0 ? (
           <p className="text-xs text-slate-400 py-12 text-center font-medium">Belum ada aktivitas transaksi harian.</p>
         ) : (
-          <div className="flex items-end justify-between h-40 pt-4 px-2 overflow-x-auto gap-4 scrollbar-thin">
-            {dailyTransactions.map((day, idx) => {
-              const maxCount = Math.max(...dailyTransactions.map(item => item.count)) || 1;
-              const pct = Math.max(15, (day.count / maxCount) * 100);
-              return (
-                <div key={idx} className="flex flex-col items-center gap-2 shrink-0 group min-w-[36px]">
-                  <div className="text-[9px] text-slate-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">
-                    {day.count} Booking (Rp {new Intl.NumberFormat('id-ID', { notation: 'compact' }).format(day.volume)})
-                  </div>
-                  <div
-                    style={{ height: `${pct}px` }}
-                    className="w-4 rounded-t bg-ptpn-700/60 group-hover:bg-ptpn-700 transition-all duration-300"
-                  ></div>
-                  <span className="text-[9px] text-slate-500 font-medium">{day.date.substring(5)}</span>
-                </div>
-              );
-            })}
-          </div>
+          <BarChart
+            data={dailyTransactions.map(day => ({
+              label: day.date.substring(5),
+              value: Number(day.count),
+              secondaryValue: Number(day.volume)
+            }))}
+            heightClass="h-56"
+          />
         )}
       </div>
     </div>

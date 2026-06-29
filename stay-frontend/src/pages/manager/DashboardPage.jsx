@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import api from '../../lib/axios';
 import { LayoutDashboard, Hotel, ShieldAlert, BadgeCent, TrendingUp, CalendarDays, Loader2, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import AreaChart from '../../components/common/AreaChart';
 
 const DashboardPage = () => {
   const [data, setData] = useState(null);
@@ -124,28 +125,16 @@ const DashboardPage = () => {
               Data transaksi terkonfirmasi belum tersedia untuk grafis.
             </div>
           ) : (
-            <div className="space-y-4 font-sans">
-              {/* Premium Bar Chart in CSS */}
-              <div className="flex items-end justify-between h-48 pt-4 px-2">
-                {revenueMonthly.map((m, idx) => {
-                  const maxVal = Math.max(...revenueMonthly.map(item => item.total)) || 1;
-                  const pct = Math.max(10, (m.total / maxVal) * 100);
-                  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
-                  return (
-                    <div key={idx} className="flex flex-col items-center gap-2 flex-1 group">
-                      <div className="text-[10px] text-slate-650 font-bold opacity-0 group-hover:opacity-100 transition-opacity">
-                        Rp {new Intl.NumberFormat('id-ID', { notation: 'compact' }).format(m.total)}
-                      </div>
-                      <div
-                        style={{ height: `${pct}%` }}
-                        className="w-8 rounded-t bg-gradient-to-t from-ptpn-700 to-emerald-700 group-hover:from-emerald-700 group-hover:to-teal-500 transition-all duration-500 shadow-sm"
-                      ></div>
-                      <span className="text-[10px] text-slate-500 font-medium">{monthNames[m.month - 1]} '{String(m.year).substring(2)}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+            <AreaChart
+              data={revenueMonthly.map(m => {
+                const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+                return {
+                  label: `${monthNames[m.month - 1]} '${String(m.year).substring(2)}`,
+                  value: Number(m.total)
+                };
+              })}
+              heightClass="h-56"
+            />
           )}
         </div>
 
